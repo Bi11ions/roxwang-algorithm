@@ -37,6 +37,26 @@ public class TestSort {
         printNums(nums);
     }
 
+    @Test
+    public void testUp2DownMergeSort() {
+        Up2DownMergeSort<Integer> up2DownMergeSort = new Up2DownMergeSort<>();
+        up2DownMergeSort.sort(nums);
+//        printNums(nums);
+    }
+
+    @Test
+    public void testDown2UpMergeSort() {
+        Down2UpMergeSort<Integer> down2UpMergeSort = new Down2UpMergeSort<>();
+        down2UpMergeSort.sort(nums);
+    }
+
+    @Test
+    public void testQuickSort() {
+        QuickSort<Integer> quickSort = new QuickSort<>();
+        quickSort.sort(nums);
+        printNums(nums);
+    }
+
     private void printNums(Integer[] nums) {
         if (null == nums || nums.length < 1) {
             return;
@@ -45,5 +65,7 @@ public class TestSort {
         for (Integer num : nums) {
             System.out.print(num + " ");
         }
+
+        System.out.println();
     }
 }

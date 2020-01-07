@@ -21,6 +21,13 @@ public class Solution {
         System.out.println(result);
     }
 
+    /**
+     * 先遍历原字符串，遇到空格，则在原字符串末尾 append 任意两个字符，如两个空格。
+     * 用指针 i 指向原字符串末尾，j 指向现字符串末尾，i, j 从后往前遍历，当 i 遇到空格，j 位置依次要赋值为 '0','2','%'，若不是空格，直接赋值为 i 指向的字符。
+     *
+     * @param str
+     * @return
+     */
     private String replaceSpace(StringBuilder str) {
         if (null == str || str.length() < 1) {
             return "-1";
