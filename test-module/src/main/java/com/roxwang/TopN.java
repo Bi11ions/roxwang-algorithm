@@ -50,9 +50,9 @@ public class TopN {
     private void buildHeap(int n, int[] data) {
         for (int i = 0; i < n; i++) {
             int t = i;
-            // 调整堆
+            // 调整堆. 如果当前节点比父节点值小，那么与父节点的值相互交换，并将t置为当前节点位置
             while (t != 0 && data[parent(t)] > data[t]) {
-                swap(data[parent(t)], data[t]);
+                swap(parent(t), t, data);
                 t = parent(t);
             }
         }
@@ -72,17 +72,17 @@ public class TopN {
         }
 
         // 置换堆顶
-        swap(data[i], data[0]);
+        swap(i, 0, data);
         // 调整堆顶
         int t = 0;
         while ((left(t) < n && data[t] > data[left(t)])
                 || (right(t) < n && data[t] > data[right(t)])) {
             // 左孩子更小，与左孩子替换
             if (data[left(t)] < data[right(t)]) {
-                swap(data[t], data[left(t)]);
+                swap(t, left(t), data);
                 t = left(t);
             } else {
-                swap(data[t], data[right(t)]);
+                swap(t, right(t), data);
                 t = right(t);
             }
         }
@@ -91,13 +91,14 @@ public class TopN {
     /**
      * 交换
      *
-     * @param source
-     * @param target
+     * @param sourceIndex
+     * @param targetIndex
+     * @param data        数组对象
      */
-    private void swap(int source, int target) {
-        int temp = source;
-        source = target;
-        target = temp;
+    private void swap(int sourceIndex, int targetIndex, int[] data) {
+        int temp = data[sourceIndex];
+        data[sourceIndex] = data[targetIndex];
+        data[targetIndex] = temp;
     }
 
     /**
@@ -134,8 +135,8 @@ public class TopN {
         int index = 0;
         while (j < times) {
             double pow = Math.pow(2, j++);
-            for (int k = 0; k < pow; k++) {
-                System.out.print(data[index++]);
+            for (int k = 0; k < pow && index < data.length; k++) {
+                System.out.print(data[index++] + " ");
             }
             System.out.println();
         }
@@ -144,7 +145,7 @@ public class TopN {
     public static void main(String[] args) {
         Random random = new Random();
         IntStream intStream = random.ints(1, 100);
-        List<Integer> initNumList = intStream.limit(40).boxed().collect(Collectors.toList());
+        List<Integer> initNumList = intStream.limit(10).boxed().collect(Collectors.toList());
         int[] initNumArr = new int[initNumList.size()];
         int i = 0;
         for (Integer integer : initNumList) {
