@@ -1,4 +1,4 @@
-package com.roxwang.sort;
+package com.roxwang.alogrithms_4th.sort;
 
 import org.junit.Test;
 
@@ -54,6 +54,13 @@ public class TestSort {
     public void testQuickSort() {
         QuickSort<Integer> quickSort = new QuickSort<>();
         quickSort.sort(nums);
+        printNums(nums);
+    }
+
+    @Test
+    public void testQuick3way() {
+        Quick3way<Integer> quick3way = new Quick3way<>();
+        quick3way.sort(nums);
         printNums(nums);
     }
 

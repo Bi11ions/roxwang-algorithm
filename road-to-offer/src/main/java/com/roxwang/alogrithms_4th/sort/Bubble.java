@@ -1,4 +1,4 @@
-package com.roxwang.sort;
+package com.roxwang.alogrithms_4th.sort;
 
 /**
  * 从左到右不断交换相邻逆序的元素，在一轮的循环之后，可以让未排序的最大元素上浮到右侧。

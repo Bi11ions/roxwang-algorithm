@@ -1,4 +1,4 @@
-package com.roxwang.sort;
+package com.roxwang.alogrithms_4th.sort;
 
 /**
  * 希尔排序（缩小增量排序）

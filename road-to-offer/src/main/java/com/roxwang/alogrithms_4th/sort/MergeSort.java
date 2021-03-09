@@ -1,4 +1,4 @@
-package com.roxwang.sort;
+package com.roxwang.alogrithms_4th.sort;
 
 /**
  * @author wangsen@qgutech.com
@@ -16,18 +16,18 @@ public abstract class MergeSort<T extends Comparable<T>> extends Sort<T> {
         }
 
         for (int k = left; k <= right; k++) {
-            if (i > mid) { // 左边有剩余时，不需要比较直接赋值
+            if (i > mid) { // 左半边用完时，直接取右半边的数据
                 nums[k] = aux[j++];
-            } else if (j > right) { // 右边有剩余时，不需要比较直接赋值
+            } else if (j > right) { // 右半边用完时，直接取左半边数据
                 nums[k] = aux[i++];
             } else if (aux[i].compareTo(aux[j]) <= 0) { //相邻两个节点比较大小，小于的赋值，否则大于的赋值
                 nums[k] = aux[i++];
             } else {
                 nums[k] = aux[j++];
             }
-            System.out.println("====>");
+
             printNums(nums);
-            System.out.println("<========");
+            System.out.println("========>");
         }
     }
 
