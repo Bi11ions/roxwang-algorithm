@@ -1,5 +1,10 @@
 package com.leetcode.all.tree;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 /**
  * @author Bi11ions
  * @description TODO
@@ -40,5 +45,49 @@ public class TreeNode {
         }
 
         return root;
+    }
+
+    public static Integer[] toArrays(TreeNode root) {
+        if (null == root) {
+            return new Integer[0];
+        }
+
+        List<Integer> list = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode treeNode = queue.poll();
+                if (null == treeNode) {
+                    list.add(null);
+                    continue;
+                }
+
+                list.add(treeNode.val);
+                queue.offer(treeNode.left);
+                queue.offer(treeNode.right);
+            }
+        }
+
+        return list.toArray(new Integer[0]);
+    }
+
+    /**
+     * 需要先确定 list 数组的大小。 否则会报错 IndexOutOfBoundsException
+     *
+     * @param root
+     * @param index
+     * @param list
+     */
+    private static void toArrays(TreeNode root, int index, List<Integer> list) {
+        if (null == root) {
+            list.add(null);
+            return;
+        }
+
+        list.set(index, root.val);
+        toArrays(root.left, index * 2 + 1, list);
+        toArrays(root.right, index * 2 + 2, list);
     }
 }
