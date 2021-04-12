@@ -52,10 +52,12 @@ public class TreeNode {
             return new Integer[0];
         }
 
+        int depth = getDepth(root);
         List<Integer> list = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        while (!queue.isEmpty()) {
+        int count = 0;
+        while (!queue.isEmpty() && depth > count++) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode treeNode = queue.poll();
@@ -71,6 +73,14 @@ public class TreeNode {
         }
 
         return list.toArray(new Integer[0]);
+    }
+
+    public static int getDepth(TreeNode x) {
+        if (null == x) {
+            return 0;
+        }
+
+        return Math.max(getDepth(x.left), getDepth(x.right)) + 1;
     }
 
     /**
