@@ -1,6 +1,6 @@
 package main
 
-// 给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
+// LowestCommonAncestor 给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
 func LowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	if nil == root {
 		return nil

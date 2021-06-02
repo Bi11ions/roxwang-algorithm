@@ -1,5 +1,6 @@
 package main
 
+// ReverseList 反转链表
 func ReverseList(head *ListNode) *ListNode {
 	if nil == head || nil == head.Next {
 		return head

@@ -1,5 +1,6 @@
 package main
 
+// FindKthLargest 无序数组中寻找第 k 个元素
 func FindKthLargest(nums []int, k int) int {
 	FastSort3Ways(nums, 0, len(nums)-1, false)
 	return nums[k-1]

@@ -1,5 +1,6 @@
 package main
 
+// 二叉树的锯齿形层次遍历
 func zigzagLevelOrder(root *TreeNode) [][]int {
 	if nil == root {
 		return [][]int{}

@@ -1,11 +1,11 @@
 package main
 
-// LengthOfLongestSubstring export 出去的函数必须以大写开头
+// 无重复最长字串
 func LengthOfLongestSubstring(s string) int {
 	// Hash 集合，记录每个字符是否出现过
 	m := map[byte]int{}
 	n := len(s)
-	// 右指针，初始值为 -1，相当于我们在自渡川的左边界的左侧，还没有开始移动
+	// 右指针，初始值为 -1，相当于我们在子串的左边界的左侧，还没有开始移动
 	rk, ans := -1, 0
 	for i := 0; i < n; i++ {
 		if i != 0 {

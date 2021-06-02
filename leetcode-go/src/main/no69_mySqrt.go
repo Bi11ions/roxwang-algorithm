@@ -1,5 +1,6 @@
 package main
 
+// 自定义平方根
 func MySqrt(x int) int {
 	if x == 0 {
 		return 0
