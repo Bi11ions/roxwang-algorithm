@@ -7,7 +7,7 @@ import org.junit.Test;
  * @since 2019/7/23 10:39
  */
 public class TestSort {
-    private Integer[] nums = {5, 3, 6, 2, 4, 1};
+    private Integer[] nums = {3,2,3,1,2,4,5,5,6};
 
     @Test
     public void testSelection() {

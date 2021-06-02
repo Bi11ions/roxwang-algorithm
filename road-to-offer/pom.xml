@@ -10,7 +10,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>road-to-offer</artifactId>
+
+    <!--  算法4标准库  -->
+    <repositories>
+        <repository>
+            <id>bintray-algs4-maven</id>
+            <name>bintray</name>
+            <url>https://dl.bintray.com/algs4/maven</url>
+        </repository>
+    </repositories>
+
     <dependencies>
+        <dependency>
+            <groupId>edu.princeton.cs</groupId>
+            <artifactId>algs4</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

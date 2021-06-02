@@ -75,3 +75,6 @@ saas-im.iml
 **/rebel.xml
 /ph-saas-ui/_dist
 **/config/config.json
+/leetcode-go/.idea/modules.xml
+/leetcode-go/.idea/vcs.xml
+/leetcode-go/.idea/workspace.xml
