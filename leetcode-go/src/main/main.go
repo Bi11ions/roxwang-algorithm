@@ -15,7 +15,8 @@ func main() {
 	// headB := BuildListNode([]int{5,6,1,8,4,5})
 	// fmt.Println(GetIntersectionNode(headA, headB))
 	// fmt.Println(FindKthInList(headA, 3))
-	fmt.Println(TwoSum([]int{4, 1, 8, 4, 5}, 9))
+	// fmt.Println(MaxSubArray([]int{1, 2, -1, 2, 4, -2}))
+	fmt.Println(Trap([]int{4, 2, 0, 3, 2, 5}))
 }
 
 /**
