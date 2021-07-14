@@ -16,7 +16,8 @@ func main() {
 	// fmt.Println(GetIntersectionNode(headA, headB))
 	// fmt.Println(FindKthInList(headA, 3))
 	// fmt.Println(MaxSubArray([]int{1, 2, -1, 2, 4, -2}))
-	fmt.Println(Trap([]int{4, 2, 0, 3, 2, 5}))
+	// fmt.Println(Trap([]int{4, 2, 0, 3, 2, 5}))
+	fmt.Println(IsValid("(){}}{"))
 }
 
 /**
