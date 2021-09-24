@@ -1,81 +1,83 @@
 package main
 
 type LRUCache struct {
-	size       int
-	capacity   int
-	cache      map[int]*DLinkedNode
-	head, tail *DLinkedNode
+	head, tail *Node
+	Keys       map[int]*Node
+	Cap        int
 }
 
-type DLinkedNode struct {
-	key, value int
-	prev, next *DLinkedNode
-}
-
-func initDLinkedNode(key, value int) *DLinkedNode {
-	return &DLinkedNode{key: key, value: value}
+type Node struct {
+	Key, Val   int
+	Prev, Next *Node
 }
 
 func Constructor(capacity int) LRUCache {
-	l := LRUCache{
-		cache:    map[int]*DLinkedNode{},
-		head:     initDLinkedNode(0, 0),
-		tail:     initDLinkedNode(0, 0),
-		capacity: capacity,
-	}
-
-	l.head.next = l.tail
-	l.tail.prev = l.head
-	return l
+	return LRUCache{Keys: make(map[int]*Node), Cap: capacity}
 }
 
-func (this *LRUCache) Get(key int) int {
-	if _, ok := this.cache[key]; !ok {
-		return -1
+// Get 查询key对应的节点，并将该节点移动到链表头部
+func (invoker *LRUCache) Get(key int) int {
+	if node, ok := invoker.Keys[key]; ok {
+		invoker.Remove(node)
+		invoker.Add(node)
+		return node.Val
 	}
 
-	node := this.cache[key]
-	this.moveToHead(node)
-	return node.value
+	return -1
 }
 
-func (this *LRUCache) Put(key int, value int) {
-	if _, ok := this.cache[key]; !ok {
-		node := initDLinkedNode(key, value)
-		this.cache[key] = node
-		this.addToHead(node)
-		this.size++
-		if this.size > this.capacity {
-			removed := this.removeTail()
-			delete(this.cache, removed.key)
-			this.size--
-		}
+// Put 新增元素，并将该元素放在头节点。 若新增后超出长度，则删除尾节点
+func (invoker *LRUCache) Put(key, value int) {
+	if node, ok := invoker.Keys[key]; ok {
+		node.Val = value
+		invoker.Remove(node)
+		invoker.Add(node)
+		return
 	} else {
-		node := this.cache[key]
-		node.value = value
-		this.moveToHead(node)
+		node = &Node{Key: key, Val: value}
+		invoker.Keys[key] = node
+		invoker.Add(node)
+	}
+
+	if len(invoker.Keys) > invoker.Cap {
+		delete(invoker.Keys, invoker.tail.Key)
+		invoker.Remove(invoker.tail)
 	}
 }
 
-func (this *LRUCache) moveToHead(node *DLinkedNode) {
-	this.removeNode(node)
-	this.addToHead(node)
+// Add 新增节点, 头插法
+func (invoker *LRUCache) Add(node *Node) {
+	node.Prev = nil
+	node.Next = invoker.head
+	if invoker.head != nil {
+		invoker.head.Prev = node
+	}
+
+	invoker.head = node
+	if invoker.tail == nil {
+		invoker.tail = node
+		invoker.tail.Next = nil
+	}
 }
 
-func (this *LRUCache) removeTail() *DLinkedNode {
-	node := this.tail.prev
-	this.removeNode(node)
-	return node
-}
+// Remove 删除结点
+func (invoker *LRUCache) Remove(node *Node) {
+	// 头节点
+	if node == invoker.head {
+		invoker.head = node.Next
+		node.Next = nil
+		return
+	}
 
-func (this *LRUCache) removeNode(node *DLinkedNode) {
-	node.prev.next = node.next
-	node.next.prev = node.prev
-}
+	// 尾节点
+	if node == invoker.tail {
+		invoker.tail = node.Prev
+		node.Prev.Next = nil
+		node.Prev = nil
+		return
+	}
 
-func (this *LRUCache) addToHead(node *DLinkedNode) {
-	node.prev = this.head
-	node.next = this.head.next
-	this.head.next.prev = node
-	this.head.next = node
+	// 中间节点
+	node.Prev.Next = node.Next
+	node.Next.Prev = node.Prev
 }
