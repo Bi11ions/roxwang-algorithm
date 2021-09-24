@@ -1,6 +1,8 @@
 package com.roxwang;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -15,8 +17,7 @@ public class TopN {
     /**
      * 父节点
      *
-     * @param n
-     * @return
+     * @return n 的父节点下标
      */
     private int parent(int n) {
         return (n - 1) / 2;
@@ -25,8 +26,7 @@ public class TopN {
     /**
      * 左孩子
      *
-     * @param n
-     * @return
+     * @return n 的左孩子下标
      */
     private int left(int n) {
         return 2 * n + 1;
@@ -35,7 +35,7 @@ public class TopN {
     /**
      * 右孩子
      *
-     * @return
+     * @return n 的右子树下标
      */
     private int right(int n) {
         return 2 * n + 2;
@@ -44,8 +44,8 @@ public class TopN {
     /**
      * 初始化构建堆
      *
-     * @param n
-     * @param data
+     * @param n    堆范围
+     * @param data 原数组
      */
     private void buildHeap(int n, int[] data) {
         for (int i = 0; i < n; i++) {
@@ -61,9 +61,9 @@ public class TopN {
     /**
      * 调整 data[i]
      *
-     * @param i
-     * @param n
-     * @param data
+     * @param i 当前下标
+     * @param n 堆范围
+     * @param data 原数组
      */
     private void adjust(int i, int n, int[] data) {
         // 小于堆顶则不放入
@@ -91,8 +91,8 @@ public class TopN {
     /**
      * 交换
      *
-     * @param sourceIndex
-     * @param targetIndex
+     * @param sourceIndex 源下标
+     * @param targetIndex 目标下标
      * @param data        数组对象
      */
     private void swap(int sourceIndex, int targetIndex, int[] data) {
@@ -123,13 +123,10 @@ public class TopN {
 
         int sum = 0;
         int times = 0;
-        while (true) {
+        do {
             double pow = Math.pow(2, times++);
             sum += pow;
-            if (n < sum) {
-                break;
-            }
-        }
+        } while (n >= sum);
 
         int j = 0;
         int index = 0;
@@ -155,5 +152,32 @@ public class TopN {
         TopN topN = new TopN();
         topN.findTopN(10, initNumArr);
         topN.printHeap(10, initNumArr);
+    }
+
+    /**
+     * leetcode No.215 返回数组中第K大个元素
+     * 使用小顶堆方式，借助于API
+     *
+     * @param nums 原数组
+     * @param k    第 K 大
+     * @return int
+     */
+    private int findKthLargest(int[] nums, int k) {
+        if (Objects.isNull(nums) || k > nums.length) {
+            return -1;
+        }
+
+        PriorityQueue<Integer> minQueue = new PriorityQueue<>(k);
+        for (int num : nums) {
+            if (minQueue.size() < k || num > minQueue.peek()) {
+                minQueue.offer(num);
+            }
+
+            if (minQueue.size() > k) {
+                minQueue.poll();
+            }
+        }
+
+        return minQueue.peek();
     }
 }

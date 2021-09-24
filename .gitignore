@@ -78,3 +78,6 @@ saas-im.iml
 /leetcode-go/.idea/modules.xml
 /leetcode-go/.idea/vcs.xml
 /leetcode-go/.idea/workspace.xml
+/classes/
+/leetcode-go/bin/
+/leetcode-go/pkg/

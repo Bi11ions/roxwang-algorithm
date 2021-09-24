@@ -6,7 +6,7 @@ func FindKthLargest(nums []int, k int) int {
 	return nums[k-1]
 }
 
-// 快排-三向切分法
+// FastSort3Ways 快排-三向切分法
 func FastSort3Ways(nums []int, lo, hi int, order bool) {
 	if hi <= lo {
 		return
