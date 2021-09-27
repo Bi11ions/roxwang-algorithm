@@ -6,8 +6,8 @@ package main
 // 因此我们只需要求出每个位置的 f(i)f(i)，然后返回 f 数组中的最大值即可。
 // 状态转移方程： f(i)=max{f(i−1)+nums[i],nums[i]}
 func MaxSubArray(nums []int) int {
-	if nil == nums {
-		return 0
+	if len(nums) == 1 {
+		return nums[0]
 	}
 
 	maxSum := nums[0]
@@ -18,6 +18,28 @@ func MaxSubArray(nums []int) int {
 
 		if nums[i] > maxSum {
 			maxSum = nums[i]
+		}
+	}
+
+	return maxSum
+}
+
+// maxSubArray1 不使用DP，模拟的方式
+// 记录最大的子序 maxSum, 使用 res 来记录从 p 的位置开始，> maxSum 的数值， 若 < 0 则复位为 0
+func maxSubArray1(nums []int) int {
+	if len(nums) == 1 {
+		return nums[0]
+	}
+
+	maxSum, res, p := nums[0], 0, 0
+	for ; p < len(nums); p++ {
+		res += nums[p]
+		if res > maxSum {
+			maxSum = res
+		}
+
+		if res < 0 {
+			res = 0
 		}
 	}
 
