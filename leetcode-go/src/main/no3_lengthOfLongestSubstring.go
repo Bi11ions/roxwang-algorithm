@@ -1,29 +1,25 @@
 package main
 
-// 无重复最长字串
+// LengthOfLongestSubstring 无重复最长字串
+// 滑动窗口 - 哈希桶
 func LengthOfLongestSubstring(s string) int {
 	// Hash 集合，记录每个字符是否出现过
-	m := map[byte]int{}
-	n := len(s)
-	// 右指针，初始值为 -1，相当于我们在子串的左边界的左侧，还没有开始移动
-	rk, ans := -1, 0
-	for i := 0; i < n; i++ {
-		if i != 0 {
-			// 左指针向右移动一格，移除一个字符
-			delete(m, s[i-1])
+	indexes := make(map[byte]int, len(s))
+	right, left, result := 0, 0, 0
+
+	for right < len(s) {
+		// 当前右指针指向的值已经在桶中，则需要左指针向右移动，排除已经重复的地址
+		if idx, ok := indexes[s[right]]; ok && idx >= left {
+			left = idx + 1
 		}
 
-		for rk+1 < n && m[s[rk+1]] == 0 {
-			// 不断地移动右指针
-			m[s[rk+1]]++
-			rk++
-		}
-
-		// 第 i 到 rk 个字符是一个极长的无重复子串
-		ans = max(ans, rk-i+1)
+		// 将右指针指向的字符记录在桶中
+		indexes[s[right]] = right
+		right++
+		result = max(result, right-left)
 	}
 
-	return ans
+	return result
 }
 
 func max(x, y int) int {

@@ -19,7 +19,8 @@ func main() {
 	// fmt.Println(Trap([]int{4, 2, 0, 3, 2, 5}))
 	//fmt.Println(IsValid("(){}}{"))
 	//fmt.Println(LexicalOrder(13))
-	fmt.Println(SortArray([]int{5,1,1,2,0,0}))
+	//fmt.Println(SortArray([]int{5,1,1,2,0,0}))
+	fmt.Println(CheckInclusion("ab", "eidboaoo"))
 }
 
 /**

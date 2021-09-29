@@ -10,6 +10,7 @@ import (
 func addStrings(num1 string, num2 string) string {
 	add := 0
 	ans := ""
+	// 当 x / y 没有遍历完，或者 add!=0 有进位时，还要继续执行
 	for i, j := len(num1)-1, len(num2)-1; i >= 0 || j >= 0 || add != 0; i, j = i-1, j-1 {
 		var x, y int
 		if i >= 0 {
