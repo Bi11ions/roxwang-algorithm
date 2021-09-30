@@ -20,7 +20,7 @@ func main() {
 	//fmt.Println(IsValid("(){}}{"))
 	//fmt.Println(LexicalOrder(13))
 	//fmt.Println(SortArray([]int{5,1,1,2,0,0}))
-	fmt.Println(CheckInclusion("ab", "eidboaoo"))
+	fmt.Println(MyAtoi("00000-42a1234"))
 }
 
 /**
