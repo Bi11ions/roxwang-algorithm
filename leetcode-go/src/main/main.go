@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "main/array"
 
 func main() {
 	// array := [...]int{1, 2, 3, 4, 5}
@@ -20,7 +20,8 @@ func main() {
 	//fmt.Println(IsValid("(){}}{"))
 	//fmt.Println(LexicalOrder(13))
 	//fmt.Println(SortArray([]int{5,1,1,2,0,0}))
-	fmt.Println(Rand10())
+	//fmt.Println(Rand10())
+	array.RemoveDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
 }
 
 /**

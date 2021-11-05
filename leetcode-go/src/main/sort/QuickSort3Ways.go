@@ -13,15 +13,17 @@ func QuickSort3Way(nums []int, low, high int) {
 	temp := nums[low]
 	for i <= gt {
 		if nums[i] < temp {
-			nums[lt] = nums[i] ^ nums[lt]
-			nums[i] = nums[lt] ^ nums[i]
-			nums[lt] = nums[i] ^ nums[lt]
+			//nums[lt] = nums[i] ^ nums[lt]
+			//nums[i] = nums[lt] ^ nums[i]
+			//nums[lt] = nums[i] ^ nums[lt]
+			nums[lt], nums[i] = nums[i], nums[lt]
 			lt++
 			i++
 		} else if nums[i] > temp {
-			nums[i] = nums[gt] ^ nums[i]
-			nums[gt] = nums[i] ^ nums[gt]
-			nums[i] = nums[gt] ^ nums[i]
+			//nums[i] = nums[gt] ^ nums[i]
+			//nums[gt] = nums[i] ^ nums[gt]
+			//nums[i] = nums[gt] ^ nums[i]
+			nums[gt], nums[i] = nums[i], nums[gt]
 			gt--
 		} else {
 			i++
