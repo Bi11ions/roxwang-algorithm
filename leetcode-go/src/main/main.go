@@ -21,7 +21,7 @@ func main() {
 	//fmt.Println(LexicalOrder(13))
 	//fmt.Println(SortArray([]int{5,1,1,2,0,0}))
 	//fmt.Println(Rand10())
-	array.MaxSlidingWindow([]int{1, 3, -1, -3, 5, 3, 6, 7}, 3)
+	array.PlusOne([]int{9, 9, 9, 9})
 }
 
 /**
