@@ -1,6 +1,8 @@
 package main
 
-import "main/array"
+import (
+	"main/dp"
+)
 
 func main() {
 	// array := [...]int{1, 2, 3, 4, 5}
@@ -21,7 +23,10 @@ func main() {
 	//fmt.Println(LexicalOrder(13))
 	//fmt.Println(SortArray([]int{5,1,1,2,0,0}))
 	//fmt.Println(Rand10())
-	array.PlusOne([]int{9, 9, 9, 9})
+	//array.PlusOne([]int{9, 9, 9, 9})
+	//test := lists.Skiplist{}
+	//test.Test()
+	println(dp.CanPartition2([]int{1, 1}))
 }
 
 /**
