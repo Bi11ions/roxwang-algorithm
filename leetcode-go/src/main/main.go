@@ -26,7 +26,7 @@ func main() {
 	//array.PlusOne([]int{9, 9, 9, 9})
 	//test := lists.Skiplist{}
 	//test.Test()
-	println(dp.CanPartition2([]int{1, 1}))
+	println(dp.UniquePathsWithObstacles([][]int{{0, 1}, {0, 0}}))
 }
 
 /**
