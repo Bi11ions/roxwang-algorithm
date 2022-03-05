@@ -26,7 +26,9 @@ func main() {
 	//array.PlusOne([]int{9, 9, 9, 9})
 	//test := lists.Skiplist{}
 	//test.Test()
-	println(dp.UniquePathsWithObstacles([][]int{{0, 1}, {0, 0}}))
+	//println(dp.UniquePathsWithObstacles([][]int{{0, 1}, {0, 0}}))
+	//println(dp.MinDistance2("zoologicoarchaeologist", "zoogeologist"))
+	println(dp.LengthOfLIS([]int{10, 9, 2, 5, 3, 7, 101, 18}))
 }
 
 /**
