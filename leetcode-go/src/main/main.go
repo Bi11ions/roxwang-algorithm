@@ -1,7 +1,7 @@
 package main
 
 import (
-	"main/dp"
+	"main/greedy"
 )
 
 func main() {
@@ -29,7 +29,9 @@ func main() {
 	//println(dp.UniquePathsWithObstacles([][]int{{0, 1}, {0, 0}}))
 	//println(dp.MinDistance2("zoologicoarchaeologist", "zoogeologist"))
 	//println(array.LengthOfLIS([]int{10, 9, 2, 5, 3, 7, 101, 18}))
-	println(dp.Rob2([]int{2, 3, 2}))
+	//println(dp.Rob2([]int{2, 3, 2}))
+	//println(array.Intersection([][]int{{3,1,2,4,5}, {1,2,3,4}, {3,4,5,6}}))
+	println(greedy.Jump([]int{2, 5, 1, 2, 4, 2, 3}))
 }
 
 /**

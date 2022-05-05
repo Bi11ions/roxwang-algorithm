@@ -13,4 +13,16 @@ public class No26_isSubStructureTest {
                 TreeNode.buildTreeNode(new Integer[]{3, 1}));
         System.out.println(subStructure);
     }
+
+    @Test
+    public void testInt() {
+        int i = 1;
+        i = i++;
+        int j = i++;
+        int k = i + ++i * i++;
+
+        System.out.println(i);
+        System.out.println(j);
+        System.out.println(k);
+    }
 }
