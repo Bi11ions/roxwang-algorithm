@@ -1,4 +1,4 @@
-package string
+package String
 
 // CheckInclusion 字符串的排列. No438 的缩水版
 // 给你两个字符串s1和s2 ，写一个函数来判断 s2 是否包含 s1的排列。如果是，返回 true ；否则，返回 false 。

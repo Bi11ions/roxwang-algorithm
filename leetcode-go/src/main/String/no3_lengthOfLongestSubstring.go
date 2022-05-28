@@ -1,4 +1,4 @@
-package string
+package String
 
 // LengthOfLongestSubstring 无重复最长字串
 // 滑动窗口 - 哈希桶

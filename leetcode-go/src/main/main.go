@@ -1,7 +1,7 @@
 package main
 
 import (
-	"main/trace"
+	"main/String"
 )
 
 func main() {
@@ -32,8 +32,7 @@ func main() {
 	//println(dp.Rob2([]int{2, 3, 2}))
 	//println(array.Intersection([][]int{{3,1,2,4,5}, {1,2,3,4}, {3,4,5,6}}))
 	//println(greedy.Jump([]int{2, 5, 1, 2, 4, 2, 3}))
-	//println(trace.Exist([][]byte{{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}},"ABCCED"))
-	println(trace.GenerateParenthesis(1))
+	println(String.StrStr("mississippi", "issip"))
 }
 
 /**
@@ -41,7 +40,7 @@ func main() {
 
 bool
 
-string
+String
 
 int  int8  int16  int32  int64
 uint uint8 uint16 uint32 uint64 uintptr

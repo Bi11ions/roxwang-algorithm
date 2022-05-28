@@ -1,4 +1,4 @@
-package string
+package String
 
 // FindAnagrams 找到字符串中所有字母异位词
 // 给定两个字符串s和 p，找到s中所有p的异位词的子串，返回这些子串的起始索引。不考虑答案输出的顺序。

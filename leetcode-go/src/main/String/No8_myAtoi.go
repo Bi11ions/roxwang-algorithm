@@ -1,4 +1,4 @@
-package string
+package String
 
 // MyAtoi 字符串转换整数 (atoi).  32 位有符号整数范围 [−2^31,  2^31−1]
 // "42" -> 42
