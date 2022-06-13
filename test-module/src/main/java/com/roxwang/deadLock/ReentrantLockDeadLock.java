@@ -48,9 +48,11 @@ public class ReentrantLockDeadLock implements Runnable {
         thread2.start();
 
         try {
-            thread1.join();
-            thread2.join();
-        } catch (InterruptedException e) {
+            thread1.join(1000);
+            thread2.join(1000);
+            thread1.interrupt();
+            thread2.interrupt();
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         // 执行不到

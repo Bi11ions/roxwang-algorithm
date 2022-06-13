@@ -15,16 +15,16 @@ func QuickSort(nums []int, low, high int) {
 func partition(nums []int, low int, high int) int {
 	//取 nums[low] 作为切分元素
 	s := low
-	povitValue := nums[low]
+	pivotValue := nums[low]
 
 	for low < high {
 		// 从数组的右端向左扫描找到第一个小于它的元素
-		for low < high && nums[high] >= povitValue {
+		for low < high && nums[high] >= pivotValue {
 			high--
 		}
 
 		// 从数组的左端向右扫描直到找到第一个大于等于它的元素
-		for low < high && nums[low] <= povitValue {
+		for low < high && nums[low] <= pivotValue {
 			low++
 		}
 
@@ -40,6 +40,6 @@ func partition(nums []int, low int, high int) int {
 
 	// 当两个指针相遇时，将切分元素 nums[low] 和 nums[high] 交换位置。
 	nums[s] = nums[low]
-	nums[high] = povitValue
+	nums[high] = pivotValue
 	return low
 }
