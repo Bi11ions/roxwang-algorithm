@@ -1,7 +1,7 @@
 package main
 
 import (
-	"main/String"
+	"main/array"
 )
 
 func main() {
@@ -32,7 +32,9 @@ func main() {
 	//println(dp.Rob2([]int{2, 3, 2}))
 	//println(array.Intersection([][]int{{3,1,2,4,5}, {1,2,3,4}, {3,4,5,6}}))
 	//println(greedy.Jump([]int{2, 5, 1, 2, 4, 2, 3}))
-	println(String.StrStr("mississippi", "issip"))
+	//println(String.StrStr("mississippi", "issip"))
+	//println(array.MoveZeroes([]int{0,1,0,3,12}))
+	println(array.MaxProfit2([]int{7, 1, 5, 3, 6, 4}))
 }
 
 /**

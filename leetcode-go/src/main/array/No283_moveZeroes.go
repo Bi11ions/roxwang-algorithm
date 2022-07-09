@@ -7,11 +7,11 @@ package array
 // 说明:
 //		1.必须在原数组上操作，不能拷贝额外的数组。
 //		2.尽量减少操作次数。
-func MoveZeroes(nums []int) {
-	// 这一题可以只扫描数组一遍，不断的用 i，j 标记 0 和非 0 的元素，然后相互交换，最终到达题目的目的 。
+func MoveZeroes(nums []int) []int {
+	// 这一题可以只扫描数组一遍，不断的用 i标记非0，j标记0的元素，然后相互交换，最终到达题目的目的 。
 	// 与这一题相近的题目有第 26 题，第 27 题，第 80 题。
 	if len(nums) == 0 {
-		return
+		return nums
 	}
 
 	j := 0
@@ -24,4 +24,6 @@ func MoveZeroes(nums []int) {
 			j++
 		}
 	}
+
+	return nums
 }
