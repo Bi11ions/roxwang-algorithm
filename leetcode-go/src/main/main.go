@@ -1,8 +1,6 @@
 package main
 
-import (
-	"main/array"
-)
+import "main/array"
 
 func main() {
 	// array := [...]int{1, 2, 3, 4, 5}
@@ -34,7 +32,10 @@ func main() {
 	//println(greedy.Jump([]int{2, 5, 1, 2, 4, 2, 3}))
 	//println(String.StrStr("mississippi", "issip"))
 	//println(array.MoveZeroes([]int{0,1,0,3,12}))
-	println(array.MaxProfit2([]int{7, 1, 5, 3, 6, 4}))
+	//println(array.MaxProfit2([]int{7, 1, 5, 3, 6, 4}))
+	//array.Rotate([]int{1,2,3,4,5,6,7}, 3)
+	//println(array.MaxArea([]int{1,8,6,2,5,4,8,3,7}))
+	array.RotateMatrix([][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}})
 }
 
 /**
